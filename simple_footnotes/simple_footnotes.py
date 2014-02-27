@@ -52,6 +52,7 @@ def parse_for_footnotes(article_generator):
             if endnotes:
                 ol = dom.createElement("ol")
                 ol.setAttribute("class", "simple-footnotes")
+                ol.appendChild(dom.createTextNode('Notes:'))
                 for e, fnid, fnbackid in endnotes:
                     li = dom.createElement("li")
                     li.setAttribute("id", fnid)

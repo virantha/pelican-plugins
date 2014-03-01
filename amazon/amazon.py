@@ -26,7 +26,7 @@ class Amazon(Directive):
         if link_type == 'text':
             myhtml = '<a href="http://www.amazon.com/gp/product/%(asin)s?ie=UTF8&linkCode=as2&camp=1634&tag=virantha-20">%(text)s</a>' % (params)
         elif link_type == 'image':
-            myhtml = '<div><a href="http://www.amazon.com/gp/offer-listing/%(asin)s/ref=as_li_tf_il?ie=UTF8&camp=1789&creative=9325&creativeASIN=%(asin)s&linkCode=am2&tag=virantha-20&"><img border="0" src="http://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=%(asin)s&Format=_SL110_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=virantha-20" style="vertical-align: middle;"/>%(text)s</a></div>' % params
+            myhtml = '<div><a href="http://www.amazon.com/gp/product/%(asin)s/ref=as_li_tf_il?ie=UTF8&camp=1789&creative=9325&creativeASIN=%(asin)s&linkCode=am2&tag=virantha-20&"><img border="0" src="http://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=%(asin)s&Format=_SL110_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=virantha-20" style="vertical-align: middle;"/>%(text)s</a></div>' % params
 
         return [nodes.raw('', myhtml, format='html')]
 

@@ -34,6 +34,14 @@ def content_object_init(instance):
                 logger.debug('Better Fig. PATH: %s', instance.settings['PATH'])
                 logger.debug('Better Fig. img.src: %s', img['src'])
 
+                # Some exclusions
+                if 'amazon' in img['src']:
+                    continue
+
+                if 'skip_better' in img['alt']:
+                    img['alt'] = img['alt'].replace('skip_better', '')
+                    continue
+
                 img_path, img_filename = path.split(img['src'])
 
                 logger.debug('Better Fig. img_path: %s', img_path)
@@ -42,10 +50,11 @@ def content_object_init(instance):
                 # Strip off {filename}, |filename| or /static
                 if img_path.startswith(('{filename}', '|filename|')):
                     img_path = img_path[10:]
-                elif img_path.startswith('/static'):
-                    img_path = img_path[7:]
+                elif img_path.startswith('/images'):
+                    #img_path = img_path[7:]
+                    pass
                 else:
-                    logger.warning('Better Fig. Error: img_path should start with either {filename}, |filename| or /static')
+                    logger.warning('Better Fig. Error: img_path should start with either {filename}, |filename| or /images')
 
                 # Build the source image filename
                 src = instance.settings['PATH'] + img_path + '/' + img_filename

@@ -65,7 +65,12 @@ def content_object_init(instance):
 
                 # Open the source image and query dimensions; build style string
                 im = Image.open(src)
+                width = im.size[0]
+                height = im.size[1]
                 extra_style = 'width: {}px; height: auto;'.format(im.size[0])
+
+                img['width'] = width
+                img['height'] = height
 
                 if instance.settings['RESPONSIVE_IMAGES']:
                     extra_style += ' max-width: 100%;'

@@ -30,8 +30,8 @@ def parse_for_tables(article_generator):
             body.append(scr)
             for table in soup.find_all('table'):
                 #print table.attrs
-                table.attrs['class'] = table.attrs.get('class') + ['pretty']
                 if 'id' in table.attrs:
+                    table.attrs['class'] = table.attrs.get('class') + ['pretty']
                     table_id = table.attrs['id']
                     scr = soup.new_tag('script')
                     scr.string = """

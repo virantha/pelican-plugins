@@ -37,6 +37,8 @@ def content_object_init(instance):
                 # Some exclusions
                 if 'amazon' in img['src']:
                     continue
+                if 'http' in img['src']:
+                    continue
 
                 if 'skip_better' in img['alt']:
                     img['alt'] = img['alt'].replace('skip_better', '')
